@@ -1,0 +1,6 @@
+function [ePitch, eOrder] = setupFastNLS(segmentLength, ...
+    maxOrder, pitchBounds, sampleRate, input)
+    obj = fastNLS(segmentLength, ...
+        maxOrder, pitchBounds/sampleRate);
+    [ePitch, eOrder] = obj.estimate(input);
+end
