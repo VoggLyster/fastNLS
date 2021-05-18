@@ -2,7 +2,7 @@
 
 [a, fs] = audioread("vocal.wav");
 
-maxOrder = 8;
+maxOrder = 20;
 minF0 = 100;
 maxF0 = 1000;
 pitchBounds = [minF0, maxF0];
