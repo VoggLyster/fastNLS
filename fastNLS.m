@@ -52,7 +52,6 @@ classdef fastNLS < handle
         
         function [costFunctions] = computeCostFunctions(obj, x)
             coder.varsize('x');
-            x = reshape(x, obj.N, 1);
             costFunctions = computeAllCostFunctions(x,obj.L,...
                 obj.fullPitchGrid, obj.fftShiftVector,...
                 obj.crossCorrelationVectors, obj.Gamma1, obj.Gamma2);
@@ -60,7 +59,6 @@ classdef fastNLS < handle
         
         function [estimatedPitch, estimatedOrder] = estimate(obj, x)
             coder.varsize('x');
-            x = reshape(x, obj.N, 1);
             if x'*x < 1e-14
                 estimatedPitch = nan;
                 estimatedOrder = 0;
