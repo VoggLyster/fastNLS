@@ -21,8 +21,12 @@ function [Gamma1, Gamma2]= computeGamma(L, F, pitchBounds, ...
     gammaNew2 = nan(L,nPitches);
     gammaOld1 = nan(L,nPitches);
     gammaOld2 = nan(L,nPitches);
-    Gamma1 = cell(L,nPitches);
-    Gamma2 = cell(L,nPitches);
+    Gamma1 = cell(L,1);
+    Gamma2 = cell(L,1);
+    for i = 1:L
+        Gamma1{i} = nan;
+        Gamma2{i} = nan;
+    end
     coder.varsize('Gamma1','Gamma2', [30, 5000]);
     coder.varsize('a1', 'a2', 'R1', 'alpha1',...
         'gammaOld1', 'gammaNew1', 'phi1', 'psi1', 'R2',...

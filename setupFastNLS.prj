@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="1756453159" file="D:\Projects\SMC\SMSA\MiniProject\setupFastNLS.prj" location="D:\Projects\SMC\SMSA\MiniProject" name="setupFastNLS" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="2758036211" file="D:\Projects\SMC\SMSA\MiniProject\setupFastNLS.prj" location="D:\Projects\SMC\SMSA\MiniProject" name="setupFastNLS" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -27,7 +27,7 @@
       <param.MATLABSourceComments>false</param.MATLABSourceComments>
       <param.ReservedNameArray />
       <param.EnableDebugging>false</param.EnableDebugging>
-      <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
+      <param.ReportPotentialDifferences>true</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.LaunchReport>false</param.LaunchReport>
       <param.ReportInfoVarName />
@@ -200,7 +200,7 @@
       <param.ReservedNameArray />
       <param.RuntimeChecks>false</param.RuntimeChecks>
       <param.Verbose>false</param.Verbose>
-      <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
+      <param.ReportPotentialDifferences>true</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.GenerateCodeMetricsReport>false</param.GenerateCodeMetricsReport>
       <param.GenerateCodeReplacementReport>false</param.GenerateCodeReplacementReport>
@@ -843,7 +843,7 @@
       </unset>
     </profile>
     <param.objective>option.objective.c</param.objective>
-    <param.WorkflowStep>generateCode</param.WorkflowStep>
+    <param.WorkflowStep>verifyCompatibility</param.WorkflowStep>
     <param.TestSnippets>
       <item>matlab_coder_helper</item>
       <item>[p,o] = setupFastNLS(numel(input), 20, [100, 1000], 48000, input)</item>
@@ -876,7 +876,7 @@
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
     <var.gc.preBuildChecksum>4273594031</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen\mex\setupFastNLS</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>1756453159</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>2758036211</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>matlab_coder_helper</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
     <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeAllCostFunctions.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeComplexHarmonicDfts.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeGamma.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeGammaMultipleSinus.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeGammaSingleSinus.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeGammaTwoSinus.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeLogMarginalLikelihood.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computePitchLogLikelihood.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computePostModelPmf.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\computeRowsOfToeplitzHankelMatrix.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\fastNLS.m&lt;/file&gt;&lt;file&gt;D:\Projects\SMC\SMSA\MiniProject\setupFastNLS.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2352136819&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
@@ -908,7 +908,7 @@
     <param.gpu.EnableCUSOLVER>false</param.gpu.EnableCUSOLVER>
     <param.gpu.EnableCUFFT>false</param.gpu.EnableCUFFT>
     <param.gpu.Benchmarking>false</param.gpu.Benchmarking>
-    <param.gpu.SafeBuild>false</param.gpu.SafeBuild>
+    <param.gpu.SafeBuild>true</param.gpu.SafeBuild>
     <param.gpu.ComputeCapability />
     <param.gpu.CustomComputeCapability />
     <param.gpu.CompilerFlags />
@@ -916,7 +916,7 @@
     <var.hasGpu>true</var.hasGpu>
     <var.isDeepLearningForMatlabCoderEnabled>true</var.isDeepLearningForMatlabCoderEnabled>
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
-    <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
+    <var.cfiTargetLibSuppression>true</var.cfiTargetLibSuppression>
     <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
     <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType>option.tensorrt.datatype.fp32</param.tensorrt.DataType>
@@ -1030,7 +1030,6 @@
       <var.hasGpu />
       <var.isDeepLearningForMatlabCoderEnabled />
       <param.deeplearning.TargetLib />
-      <var.cfiTargetLibSuppression />
       <var.hasMatlabDeepLearningSupportPackage />
       <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
