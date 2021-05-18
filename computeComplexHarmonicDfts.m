@@ -22,8 +22,8 @@ function [harmonicDfts, pitchGrids] = ...
         tmpPitchGrids(ii,1:nPitches) = fullPitchGrid(1:nPitches);
         tmpHarmonicDfts(ii, 1:nPitches) = shiftedDftData(dftIndices+1);
     end
-    pitchGrids = tmpPitchGrids(:,1:nPitches);
-    harmonicDfts = tmpHarmonicDfts(:,1:nPitches);
+    pitchGrids = tmpPitchGrids(:,:);
+    harmonicDfts = tmpHarmonicDfts(:,:);
 end
 
 function dftIndices = computeDftIndicesNHarmonic(nDft, pitchBounds, ...

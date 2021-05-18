@@ -21,9 +21,9 @@ function [Gamma1, Gamma2]= computeGamma(L, F, pitchBounds, ...
     gammaNew2 = nan(L,nPitches);
     gammaOld1 = nan(L,nPitches);
     gammaOld2 = nan(L,nPitches);
-    gammaRows = sum(1:L);
-    Gamma1 = nan(gammaRows, nPitches);
-    Gamma2 = nan(gammaRows, nPitches);
+    Gamma1 = cell(L,nPitches);
+    Gamma2 = cell(L,nPitches);
+    coder.varsize('Gamma1','Gamma2', [30, 5000]);
     coder.varsize('a1', 'a2', 'R1', 'alpha1',...
         'gammaOld1', 'gammaNew1', 'phi1', 'psi1', 'R2',...
         'alpha2', 'gammaOld2', 'gammaNew2', 'phi2', 'psi2');
@@ -38,26 +38,26 @@ function [Gamma1, Gamma2]= computeGamma(L, F, pitchBounds, ...
                a1(1,validPitchIndices), true);
            psi1(1,:) = psiout;
            phi1(1,:) = phiout;
-           Gamma1(1,:) = gammaOld1(1,:);
+           Gamma1{l} = gammaOld1(1,:);
            [psiout, phiout, gammaOld2] = computeGammaSingleSinus(...
                crossCorrelationVectors(1:3,validPitchIndices),...
                a2(1,validPitchIndices), false);
            psi2(1,:) = psiout;
            phi2(1,:) = phiout;
-           Gamma2(1,:) = gammaOld2(1,:);
+           Gamma2{l} = gammaOld2(1,:);
         elseif l == 2
             [R1, alpha1, gammaNewout] = computeGammaTwoSinus(...
                 crossCorrelationVectors(1:5,validPitchIndices),...
                 psi1(1,validPitchIndices),...
                 gammaOld1(validPitchIndices), true);
             gammaNew1(1:2,:) = gammaNewout;
-            Gamma1(2:3,:) = gammaNew1(1:2,:);
+            Gamma1{l} = gammaNew1(1:2,:);
             [R2, alpha2, gammaNewout] = computeGammaTwoSinus(...
                 crossCorrelationVectors(1:5,validPitchIndices),...
                 psi2(1,validPitchIndices),...
                 gammaOld2(validPitchIndices),false);
             gammaNew2(1:2,:) = gammaNewout;
-            Gamma2(2:3,:) = gammaNew2(1:2,:);
+            Gamma2{l} = gammaNew2(1:2,:);
         else 
             ll = l-1;
             [R1, phiout, psiout, alpha1, gammaOld1, gammaNew1] = ...
@@ -86,8 +86,8 @@ function [Gamma1, Gamma2]= computeGamma(L, F, pitchBounds, ...
                 false);
             psi2(1:l-1,1:size(psiout,2)) = psiout;
             phi2(1:l-1,1:size(psiout,2)) = phiout;
-            Gamma1(sum(1:l)-(l-1):sum(1:l),:) = gammaNew1(1:l,:);
-            Gamma2(sum(1:l)-(l-1):sum(1:l),:) = gammaNew2(1:l,:);
+            Gamma1{l} = gammaNew1(1:l,:);
+            Gamma2{l} = gammaNew2(1:l,:);
         end
     end
     
